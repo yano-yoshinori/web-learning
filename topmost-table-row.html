@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>topmost table row</title>
+  <style>
+    body {
+      background-color: gray;
+    }
+
+    .border {
+      border: 1px solid red;
+    }
+
+    tr {
+      background-color: skyblue;
+      width: 600px;
+      padding: 8px;
+    }
+
+    th,
+    td {
+      padding: 8px;
+    }
+
+    td {
+      width: 200px;
+    }
+
+    .click-guard {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: green;
+      opacity: 0.4;
+    }
+
+    .topmost {
+      /* absolute を使うと table が壊れてしまう*/
+      position: relative;
+      top: -176px;
+      left: 0;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <!-- 本体テーブル -->
+    <table>
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>a</th>
+          <th>b</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border">
+          <th class="border">head</th>
+          <td class="border">data</td>
+        </tr>
+        <tr class="border">
+          <th class="border">head</th>
+          <td class="border">
+          </td>
+        </tr>
+        <tr class="border">
+          <th class="border">head</th>
+          <td class="border">data</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="topmost">
+      <div>
+        <!-- 浮かび上がらせるテーブル -->
+        <table>
+          <colgroup>
+            <col />
+            <col />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>a</th>
+              <th>b</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border">
+              <th class="border">head</th>
+              <td class="border">data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="click-guard"></div>
+
+</body></html>
